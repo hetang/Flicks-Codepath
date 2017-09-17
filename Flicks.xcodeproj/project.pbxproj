@@ -16,6 +16,7 @@
 		5BB2DBF11F691D430077F3EA /* FlicksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB2DBF01F691D430077F3EA /* FlicksUITests.swift */; };
 		5BD43A5E1F6A1C1C004B7423 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD43A5D1F6A1C1C004B7423 /* MovieListViewController.swift */; };
 		5BD43A601F6A1ECC004B7423 /* MovieListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD43A5F1F6A1ECC004B7423 /* MovieListCell.swift */; };
+		5BD43AA01F6DE3EE004B7423 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD43A9F1F6DE3EE004B7423 /* MovieDetailsViewController.swift */; };
 		88D6F69287641D0755CFE07A /* Pods_Flicks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5657DDD43F87DCC4354C3FAD /* Pods_Flicks.framework */; };
 		D65C4720E9C50ABF12C116F3 /* Pods_FlicksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7863E33E9B945A651510193 /* Pods_FlicksTests.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		5BB2DBF21F691D430077F3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BD43A5D1F6A1C1C004B7423 /* MovieListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		5BD43A5F1F6A1ECC004B7423 /* MovieListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListCell.swift; sourceTree = "<group>"; };
+		5BD43A9F1F6DE3EE004B7423 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		905416DC2BAEE406CF6581AB /* Pods-FlicksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlicksTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlicksTests/Pods-FlicksTests.release.xcconfig"; sourceTree = "<group>"; };
 		AB85ABD6EA3D87ACFC080729 /* Pods-FlicksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlicksUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlicksUITests/Pods-FlicksUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA6DD0FE2BB87AD97119002A /* Pods-FlicksUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlicksUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlicksUITests/Pods-FlicksUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				5BB2DBD71F691D430077F3EA /* Assets.xcassets */,
 				5BB2DBD91F691D430077F3EA /* LaunchScreen.storyboard */,
 				5BB2DBDC1F691D430077F3EA /* Info.plist */,
+				5BD43A9F1F6DE3EE004B7423 /* MovieDetailsViewController.swift */,
 			);
 			path = Flicks;
 			sourceTree = "<group>";
@@ -397,12 +400,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Flicks/Pods-Flicks-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD43AA01F6DE3EE004B7423 /* MovieDetailsViewController.swift in Sources */,
 				5BB2DBD11F691D430077F3EA /* AppDelegate.swift in Sources */,
 				5BD43A601F6A1ECC004B7423 /* MovieListCell.swift in Sources */,
 				5BD43A5E1F6A1C1C004B7423 /* MovieListViewController.swift in Sources */,

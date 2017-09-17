@@ -41,6 +41,11 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         movieTableView.insertSubview(refreshControl, at: 0)
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -54,8 +59,7 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieListCell = tableView.dequeueReusableCell(withIdentifier: "MovieListCell", for: indexPath) as! MovieListCell
         cell.posterImage.image = nil
-        //cell.selectionStyle = .none
-        
+
         let movie = tableMovies[indexPath.row]
         let imageCache = AutoPurgingImageCache()
         if let imageUrlString = movie.value(forKeyPath: "poster_path") as? String {
@@ -64,6 +68,7 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
             } else {
                 Alamofire.request("https://image.tmdb.org/t/p/w342\(imageUrlString)").responseImage { response in
                     if let image = response.result.value {
+                        imageCache.add(image, withIdentifier: imageUrlString)
                         cell.posterImage.alpha = 0.0
                         cell.posterImage.image = image
                         UIView.animate(withDuration: 0.5, animations: { () -> Void in
@@ -114,6 +119,16 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
             refreshControl?.endRefreshing()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        let index = movieTableView.indexPath(for: cell)
+        let movie = tableMovies[(index!.row)]
+        let movieDetailsViewController = segue.destination as! MovieDetailsViewController
+        movieDetailsViewController.movie = movie
+        self.tabBarController?.tabBar.isHidden = true
+        movieTableView.deselectRow(at: index!, animated: true)
+    }
 
     /**
      * Search Bar Delegates functions
@@ -157,5 +172,12 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationItem.rightBarButtonItem = nil
         searchBar.resignFirstResponder()
         searchBar.text = nil
+        self.tableMovies = self.movies
+        self.movieTableView.reloadData()
+
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }

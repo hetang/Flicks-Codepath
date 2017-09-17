@@ -10,6 +10,7 @@ target 'Flicks' do
   pod 'NVActivityIndicatorView'
   pod 'Alamofire', '~> 4.5'
   pod 'AlamofireImage', '~> 3.2'
+  pod 'Cosmos', '~> 11.0'
   
   target 'FlicksTests' do
     inherit! :search_paths
